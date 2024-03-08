@@ -1,17 +1,21 @@
 import "./App.css";
+import Todo from "./Todo";
 
 function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <Person />
+      <Todo task="learn React" isDone={true}></Todo>
+      <Todo task="Core concepts" isDone={false}></Todo>
+      <Todo task="Try JSX" isDone={true}></Todo>
+      {/* <Person />
       <Device name="Laptop" price="15000" />
       <Device name="Mobile" price="9000" />
       <Device name="Tablet" price="20000" />
       <Student grade="5" score="90" />
       <Student grade="4" score="80" />
-      <Student grade="3.5" score="70" />
-      <Developer />
+      <Student grade={3.5} score="70" />
+      <Developer /> */}
     </>
   );
 }
@@ -67,8 +71,8 @@ function Developer() {
   );
 }
 
-function Student({ grade, score }) {
-  console.log(grade, score);
+function Student({ grade = 1, score = 0 }) {
+  // console.log(grade, score);
   return (
     <div className=" student">
       <h3>This is a student</h3>
