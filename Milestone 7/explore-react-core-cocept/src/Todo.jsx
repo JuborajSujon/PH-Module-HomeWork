@@ -18,9 +18,54 @@
 // }
 
 //conditional rendering option 2
+// export default function Todo({ task, isDone }) {
+//   if (isDone) {
+//     return <li>Finish: {task}</li>;
+//   }
+//   return <li>Work one: {task}</li>;
+// }
+
+//conditional rendering option 3 : tarnery operator
+// export default function Todo({ task, isDone }) {
+//   return <li>{isDone ? `Finish: ${task}` : `Work one: ${task}`}</li>;
+// }
+
+//conditional rendering option 4
+// export default function Todo({ task, isDone }) {
+//   return (
+//     <li>
+//       {isDone ? `Finish:` : `Work one:`} : {task}
+//     </li>
+//   );
+// }
+
+// conditional rendering option 5 : &&
+// export default function Todo({ task, isDone }) {
+//   return (
+//     <li>
+//       {task}
+//       {isDone && ":Done"}
+//     </li>
+//   );
+// }
+
+// conditional rendering option 5 : ||
+// export default function Todo({ task, isDone }) {
+//   return (
+//     <li>
+//       {task}
+//       {isDone || ":Do it"}
+//     </li>
+//   );
+// }
+
+//conditional rendering option 6 : use variable
 export default function Todo({ task, isDone }) {
+  let listItem;
   if (isDone) {
-    return <li>Finish: {task}</li>;
+    listItem = <li>Finish: {task}</li>;
+  } else {
+    listItem = <li>Work one: {task}</li>;
   }
-  return <li>Work one: {task}</li>;
+  return listItem;
 }
