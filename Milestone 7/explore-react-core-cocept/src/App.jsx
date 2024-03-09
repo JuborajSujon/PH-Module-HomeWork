@@ -1,13 +1,52 @@
+import Actor from "./Actor";
 import "./App.css";
 import Todo from "./Todo";
+import Singer from "./Singer";
 
 function App() {
+  const actors = [
+    "Tom Cruise",
+    "Will Smith",
+    "Angelina Jolie",
+    "Leonardo Di Caprio",
+    "Jason statham",
+  ];
+
+  const singers = [
+    {
+      id: 1,
+      name: "Dr. Mahfuzur Raham",
+      age: 68,
+    },
+    {
+      id: 2,
+      name: "Eva Rahman",
+      age: 32,
+    },
+    {
+      id: 3,
+      name: "Shubro Dev",
+      age: 58,
+    },
+    {
+      id: 4,
+      name: "Pritom",
+      age: 33,
+    },
+  ];
   return (
     <>
       <h1>Vite + React</h1>
-      <Todo task="learn React" isDone={true}></Todo>
+      {singers.map((singer, index) => {
+        return <Singer key={index} singer={singer} />;
+      })}
+      <Actor name="Bappa Raz"></Actor>
+      {actors.map((actor, index) => {
+        return <Actor key={index} name={actor}></Actor>;
+      })}
+      {/* <Todo task="learn React" isDone={true}></Todo>
       <Todo task="Core concepts" isDone={false}></Todo>
-      <Todo task="Try JSX" isDone={true}></Todo>
+      <Todo task="Try JSX" isDone={true}></Todo> */}
       {/* <Person />
       <Device name="Laptop" price="15000" />
       <Device name="Mobile" price="9000" />
