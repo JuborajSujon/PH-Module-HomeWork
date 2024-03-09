@@ -2,6 +2,7 @@ import Actor from "./Actor";
 import "./App.css";
 import Todo from "./Todo";
 import Singer from "./Singer";
+import BookStore from "./BookStore";
 
 function App() {
   const actors = [
@@ -34,9 +35,18 @@ function App() {
       age: 33,
     },
   ];
+
+  const books = [
+    { id: 1, name: "Book 1", price: 100 },
+    { id: 2, name: "Book 2", price: 200 },
+    { id: 3, name: "Book 3", price: 300 },
+    { id: 4, name: "Book 4", price: 400 },
+    { id: 5, name: "Book 5", price: 500 },
+  ];
   return (
     <>
       <h1>Vite + React</h1>
+      <BookStore books={books} />
       {singers.map((singer, index) => {
         return <Singer key={index} singer={singer} />;
       })}
