@@ -1,8 +1,10 @@
 import "./App.css";
-import Counter from "./Counter";
-import Friends from "./Friends";
-import Team from "./Team";
-import Users from "./Users";
+import UseStateInput, { UseStateInput2 } from "./components/UseStateInput";
+// import Counter from "./Counter";
+// import Friends from "./Friends";
+// import Team from "./Team";
+// import Users from "./Users";
+// import UseStateVsVariable from "./UseStateVsVariable";
 
 function App() {
   function handleClick() {
@@ -18,8 +20,11 @@ function App() {
   };
   return (
     <>
-      <h3>React Core Concepts 2</h3>
-      <Friends></Friends>
+      <h2>React Core Concepts 2</h2>
+      <UseStateInput></UseStateInput>
+      <UseStateInput2></UseStateInput2>
+      {/* <UseStateVsVariable></UseStateVsVariable> */}
+      {/* <Friends></Friends>
       <Users></Users>
       <Team></Team>
       <Counter />
@@ -31,7 +36,7 @@ function App() {
         }}>
         Click Me 3
       </button>
-      <button onClick={() => addToFive(5)}>Add to Five</button>
+      <button onClick={() => addToFive(5)}>Add to Five</button> */}
     </>
   );
 }
