@@ -18,5 +18,8 @@ export default function Users() {
  * 1. declare a state to hold the data
  * 2. useEffect with call back and dependency array
  * 3. use fetch to load data from api
+ * 4. set loaded data to the state
+ * 5. display data on the component
+ *
  *
  */
