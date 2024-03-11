@@ -1,5 +1,11 @@
 import "./App.css";
-import UseStateInput, { UseStateInput2 } from "./components/UseStateInput";
+import UseStateInput, {
+  UseStateInput2,
+  UseStateObject,
+  UseStateObject2,
+  UseStateObject3,
+  UseStateMessageList,
+} from "./components/UseStateInput";
 // import Counter from "./Counter";
 // import Friends from "./Friends";
 // import Team from "./Team";
@@ -21,8 +27,12 @@ function App() {
   return (
     <>
       <h2>React Core Concepts 2</h2>
-      <UseStateInput></UseStateInput>
-      <UseStateInput2></UseStateInput2>
+      <UseStateObject></UseStateObject>
+      <UseStateObject2></UseStateObject2>
+      <UseStateObject3></UseStateObject3>
+      <UseStateMessageList></UseStateMessageList>
+      {/* <UseStateInput></UseStateInput>
+      <UseStateInput2></UseStateInput2> */}
       {/* <UseStateVsVariable></UseStateVsVariable> */}
       {/* <Friends></Friends>
       <Users></Users>
