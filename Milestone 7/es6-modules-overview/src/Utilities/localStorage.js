@@ -19,4 +19,12 @@ const setStoredCart = (id) => {
   saveCartToLocalStorage(cart);
 };
 
-export { getStoredCart, setStoredCart };
+const removeStoredCart = (id) => {
+  const cart = getStoredCart();
+  // removing every id
+  const remainingCart = cart.filter((bottle) => bottle !== id);
+  // save to local storage
+  saveCartToLocalStorage(remainingCart);
+};
+
+export { getStoredCart, setStoredCart, removeStoredCart };

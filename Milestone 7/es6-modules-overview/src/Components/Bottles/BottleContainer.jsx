@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Bottles from "./Bottles";
 import "./BottleContainer.css";
-import { getStoredCart, setStoredCart } from "../../Utilities/localStorage";
+import {
+  getStoredCart,
+  setStoredCart,
+  removeStoredCart,
+} from "../../Utilities/localStorage";
 import Cart from "../Cart/Cart";
 export default function BottleContainer() {
   const [bottles, setBottles] = useState([]);
@@ -42,11 +46,20 @@ export default function BottleContainer() {
 
     setStoredCart(bottle.id);
   };
+
+  const handleRemoveFromCart = (id) => {
+    console.log("remove cart", id);
+    // visual cart remove
+    const remainingCart = cart.filter((bottle) => bottle.id !== id);
+    setCart(remainingCart);
+    // local storage remove
+    removeStoredCart(id);
+  };
   return (
     <div>
       <Header />
       <h4>Bottles Available: {bottles.length}</h4>
-      <Cart cart={cart} />
+      <Cart cart={cart} handleRemoveFromCart={handleRemoveFromCart} />
       <div className="bottles-container">
         {bottles.map((bottle) => (
           <Bottles
