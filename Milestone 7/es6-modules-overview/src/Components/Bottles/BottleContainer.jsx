@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Bottles from "./Bottles";
 import "./BottleContainer.css";
 import { getStoredCart, setStoredCart } from "../../Utilities/localStorage";
+import Cart from "../Cart/Cart";
 export default function BottleContainer() {
   const [bottles, setBottles] = useState([]);
   const [cart, setCart] = useState([]);
@@ -15,11 +16,23 @@ export default function BottleContainer() {
 
   // load cart from local storage
   useEffect(() => {
-    console.log(bottles.length);
+    // console.log(bottles.length);
 
     if (bottles.length > 0) {
       const storedCart = getStoredCart();
-      console.log(storedCart);
+      // console.log(storedCart, bottles);
+
+      const newCart = [];
+
+      for (const id of storedCart) {
+        // console.log(id);
+        const bottle = bottles.find((bottle) => bottle.id === id);
+        if (bottle) {
+          newCart.push(bottle);
+        }
+      }
+      // console.log("save cart", newCart);
+      setCart(newCart);
     }
   }, [bottles]);
 
@@ -33,7 +46,7 @@ export default function BottleContainer() {
     <div>
       <Header />
       <h4>Bottles Available: {bottles.length}</h4>
-      <h4>Added Bottles: {cart.length}</h4>
+      <Cart cart={cart} />
       <div className="bottles-container">
         {bottles.map((bottle) => (
           <Bottles
