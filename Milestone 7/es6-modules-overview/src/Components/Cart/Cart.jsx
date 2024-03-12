@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import "./Cart.css";
 export default function Cart({ cart }) {
   return (
@@ -12,3 +12,7 @@ export default function Cart({ cart }) {
     </div>
   );
 }
+
+Cart.propTypes = {
+  cart: PropTypes.array.isRequired,
+};
