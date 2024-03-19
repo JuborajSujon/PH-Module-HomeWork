@@ -11,7 +11,7 @@ export default function SelfNavbar() {
     { id: 5, name: "NotFound", path: "*" },
   ];
   return (
-    <nav>
+    <nav className="text-black bg-yellow-200 p-4 shadow-lg">
       <div className="md:hidden" onClick={() => setOpen(!open)}>
         {open ? (
           <RiCloseLine className=" text-xl" />
@@ -19,7 +19,13 @@ export default function SelfNavbar() {
           <RiMenu2Line className=" text-xl" />
         )}
       </div>
-      <ul className="md:flex">
+      <ul
+        className={`md:flex absolute md:static left-0 duration-1000 bg-yellow-200 px-6 ${
+          open ? "top-12 " : "-top-60"
+        }`}>
+        {/**
+         * ${open ? "" : "hidden"}
+         */}
         {routes.map((route) => (
           <Link key={route.id} route={route} />
         ))}
