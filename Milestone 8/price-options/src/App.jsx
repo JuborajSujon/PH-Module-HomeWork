@@ -6,9 +6,11 @@ import SelfNavbar from "./components/SelfNavbar/SelfNavbar";
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      <SelfNavbar />
-      <PriceOptions />
+      <div className="container mx-auto">
+        {/* <Navbar /> */}
+        <SelfNavbar />
+        <PriceOptions />
+      </div>
     </>
   );
 }
