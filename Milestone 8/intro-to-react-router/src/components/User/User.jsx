@@ -1,9 +1,22 @@
+import { useLoaderData } from "react-router-dom";
+import SingleUser from "./SingleUser";
+
 const User = () => {
+  // state --> data
+  // state --> loader
+  // state --> error
+  // use effect
+  // use fetch --> state set data from api, loader, error
+  const users = useLoaderData();
+
+  // console.log(users);
+
   return (
     <section>
       <h3 className="text-3xl text-center underline mb-6 font-bold">
         Our Users Table
       </h3>
+      <p className="text-xl font-bold">Total Users: {users.length}</p>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -11,32 +24,15 @@ const User = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Website</th>
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
+            {users.map((user) => (
+              <SingleUser key={user.id} userdata={user} />
+            ))}
           </tbody>
         </table>
       </div>
