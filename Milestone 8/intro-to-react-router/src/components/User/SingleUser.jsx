@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SingleUser = ({ userdata }) => {
   const { id, name, email, phone, website } = userdata;
   return (
@@ -7,6 +9,11 @@ const SingleUser = ({ userdata }) => {
       <td>{email}</td>
       <td>{phone}</td>
       <td>{website}</td>
+      <td>
+        <Link className="btn" to={`/users/${id}`}>
+          Show Details
+        </Link>
+      </td>
     </tr>
   );
 };

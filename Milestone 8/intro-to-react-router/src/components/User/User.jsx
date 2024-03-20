@@ -27,6 +27,7 @@ const User = () => {
               <th>Email</th>
               <th>Phone</th>
               <th>Website</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
