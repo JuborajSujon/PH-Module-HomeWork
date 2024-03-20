@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         element: <div>Contact</div>,
       },
       {
+        path: "/footer",
+        element: <div>Footer</div>,
+      },
+      {
         path: "*",
         element: <div>Not Found</div>,
       },
