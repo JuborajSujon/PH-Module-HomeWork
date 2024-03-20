@@ -7,7 +7,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About.jsx";
 import User from "./components/User/User.jsx";
 import Contact from "./components/Contact/Contact.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,14 +22,13 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/user",
+        path: "/users",
         element: <User />,
       },
       {
         path: "/contact",
         element: <Contact />,
       },
-
       {
         path: "*",
         element: <div>Not Found</div>,

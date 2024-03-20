@@ -1,6 +1,9 @@
 const User = () => {
   return (
     <section>
+      <h3 className="text-3xl text-center underline mb-6 font-bold">
+        Our Users Table
+      </h3>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <section>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero h-[50vh] bg-slate-300">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
