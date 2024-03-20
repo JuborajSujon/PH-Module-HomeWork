@@ -4,6 +4,10 @@ import App from "./App.jsx";
 import "./index.css";
 import Home from "./components/Home/Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./components/About/About.jsx";
+import User from "./components/User/User.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,20 +20,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <div>About</div>,
+        element: <About />,
       },
       {
         path: "/user",
-        element: <div>User</div>,
+        element: <User />,
       },
       {
         path: "/contact",
-        element: <div>Contact</div>,
+        element: <Contact />,
       },
-      {
-        path: "/footer",
-        element: <div>Footer</div>,
-      },
+
       {
         path: "*",
         element: <div>Not Found</div>,
