@@ -47,6 +47,9 @@ export default function Header() {
                 <Link to="/users">User</Link>
               </li>
               <li>
+                <Link to="/posts">Blogs</Link>
+              </li>
+              <li>
                 <Link to="/contact">Contact</Link>
               </li>
             </ul>
@@ -76,6 +79,9 @@ export default function Header() {
             </li>
             <li>
               <Link to="/users">User</Link>
+            </li>
+            <li>
+              <Link to="/posts">Blogs</Link>
             </li>
             <li>
               <Link to="/contact">Contact</Link>
