@@ -1,10 +1,13 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 const PostDetails = () => {
   const { title, userId, body } = useLoaderData();
+  const params = useParams();
+  const { id } = params;
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
   };
+  console.log(id);
   return (
     <div>
       <div className="card mx-8 bg-base-100 shadow-xl">
