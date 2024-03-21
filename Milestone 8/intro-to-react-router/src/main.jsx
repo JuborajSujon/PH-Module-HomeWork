@@ -10,11 +10,13 @@ import Contact from "./components/Contact/Contact.jsx";
 import UserDetails from "./components/User Details/UserDetails.jsx";
 import Posts from "./components/Posts/Posts.jsx";
 import PostDetails from "./components/Post Details/PostDetails";
+import ErrorNotFound from "./components/Not Found/ErrorNotFound.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorNotFound />,
     children: [
       {
         path: "/",
@@ -50,10 +52,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "*",
-        element: <div>Not Found</div>,
-      },
+      // {
+      //   path: "*",
+      //   element: <div>Not Found</div>,
+      // },
     ],
   },
 ]);
