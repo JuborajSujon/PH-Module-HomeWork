@@ -7,7 +7,7 @@ const PostDetails = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
-  console.log(id);
+
   return (
     <div>
       <div className="card mx-8 bg-base-100 shadow-xl">

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -44,7 +44,7 @@ export default function Header() {
                 </details>
               </li>
               <li>
-                <Link to="/users">User</Link>
+                <NavLink to="/users">User</NavLink>
               </li>
               <li>
                 <Link to="/posts">Blogs</Link>
@@ -78,7 +78,7 @@ export default function Header() {
               </details>
             </li>
             <li>
-              <Link to="/users">User</Link>
+              <NavLink to="/users">User</NavLink>
             </li>
             <li>
               <Link to="/posts">Blogs</Link>
