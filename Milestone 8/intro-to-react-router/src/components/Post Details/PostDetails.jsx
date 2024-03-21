@@ -1,6 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 const PostDetails = () => {
   const { title, userId, body } = useLoaderData();
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
   return (
     <div>
       <div className="card mx-8 bg-base-100 shadow-xl">
@@ -16,6 +20,9 @@ const PostDetails = () => {
             <h3 className="font-bold text-lg">{title}</h3>
             <p className="font-semibold">user Id: {userId}</p>
             <p className="">{body}</p>
+            <button onClick={handleGoBack} className="btn btn-primary">
+              Go back
+            </button>
           </div>
         </div>
       </div>

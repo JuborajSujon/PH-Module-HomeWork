@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Post = ({ post }) => {
   const { userId, id, title, body } = post;
+  const navigate = useNavigate();
+  const handleShowDetailes = () => {
+    navigate(`/posts/${id}`);
+  };
   return (
     <section className="basis-96">
       <div className="card bg-base-100 shadow-xl">
@@ -28,6 +32,12 @@ const Post = ({ post }) => {
             className="btn"
             onClick={() => document.getElementById("post_modal").showModal()}>
             Read more
+          </button>
+        </div>
+        <div className="divider">OR Use Navigate on click</div>
+        <div className="text-center py-8">
+          <button onClick={handleShowDetailes} className="btn btn-primary ">
+            Navigate to see details
           </button>
         </div>
       </div>
