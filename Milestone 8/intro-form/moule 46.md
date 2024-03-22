@@ -34,3 +34,19 @@ _Parameters_
 - In strict Mode, React will call your component function twice in order to help you find accidental impurities. This is development only behaviour and does not affect production, Each ref object will be created twice, but one of the versions will be discarded.
 
 ## Controlled Components
+
+In a controlled component, the state of the form elements is controlled by react. the value of the input is set through the component's state. and is updated through event handlers.
+
+When the input value changes, the state is updated , and react re-renders the component to reflect the new value.
+
+Controlled components offer more controll over the form's behavior and provide a clear data flow.
+
+![Controlled](./Asset/controlle.png)
+
+## Uncontrolled Components
+
+In an uncontrolled component, the form element's state is managed by the DOM rather than react. You can directly access the dom element using reference after rendering.
+
+Thus uncontrolled components do not depend on any state of input elements or any event handler. This type of component does not care about real-time inpute changes.
+
+![Uncontrolled](./Asset/uncontroll.png)
