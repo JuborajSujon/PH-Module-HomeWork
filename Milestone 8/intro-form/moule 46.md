@@ -6,6 +6,8 @@
 2. controlled element: use individual field state to store data for each field
 3. controlled element : one object holding all the input fields value
 4. uncontrolled element: use useRef to access input field value
+5. use hook to handle states and submit and error. example react hook form
+6. Reusable component
 
 ## What is `useRef` in React?
 
