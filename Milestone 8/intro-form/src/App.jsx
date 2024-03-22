@@ -1,11 +1,13 @@
 import "./App.css";
-import SimpleForm from "./components/Simple Form/SimpleForm";
+import StateFullForm from "./components/StateFull Form/StateFullForm";
+// import SimpleForm from "./components/Simple Form/SimpleForm";
 
 function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <SimpleForm />
+      {/* <SimpleForm /> */}
+      <StateFullForm />
     </>
   );
 }
