@@ -10,4 +10,7 @@ Currently, two official plugins are available:
 # Context API
 
 1. Create a context and export it
-2. Add provider for the context with a value
+2. Add provider for the context with a value, Value could be anything
+3. useContext to access value in the context api
+
+Call useContext at the top level of your component to read and subscrbe to context.
