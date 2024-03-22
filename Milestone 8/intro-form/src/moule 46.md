@@ -32,3 +32,5 @@ _Parameters_
 - You can mutate the ref.current property. Unlike state, it is mutable.
 - When you change the ref.current property, React does not re-render your component.
 - In strict Mode, React will call your component function twice in order to help you find accidental impurities. This is development only behaviour and does not affect production, Each ref object will be created twice, but one of the versions will be discarded.
+
+## Controlled Components
