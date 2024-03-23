@@ -1,4 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -23,9 +26,15 @@ const JobDetails = () => {
         </div>
         <div className="border">
           <h2 className="text-2xl">Side things</h2>
-          <button className="btn btn-primary w-full">Apply Now</button>
+          <button
+            onClick={() => toast("Applied Successfully")}
+            className="btn btn-primary w-full">
+            Apply Now
+          </button>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };
