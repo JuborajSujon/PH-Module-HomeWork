@@ -11,5 +11,5 @@
  * 10. import GoogleAuthProvider from firebase/auth and create const provider = new GoogleAuthProvider()
  * 11. import { signInWithPopup } from 'firebase/auth'; and create signInWithPopup(auth, provider) promise
  * 12. Activate sign in method (google, facebook, github, etc.)
- * 13.
+ * 13. [vite]: change 127.0.0.1 to localhost
  */
