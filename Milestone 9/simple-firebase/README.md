@@ -1,8 +1,13 @@
-# React + Vite
+## What is Firebase?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Is Firebase frontend or backend ?
 
-Currently, two official plugins are available:
+## What is Firebase architecture?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What are the features of firebase?
+
+## What are the tasks you can accomplish with firebase?
+
+## Differences between firebase and mongodb
+
+## Have you ever used firebase database (real time database)
