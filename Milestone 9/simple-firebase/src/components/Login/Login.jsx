@@ -1,4 +1,5 @@
 import {
+  FacebookAuthProvider,
   getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -13,6 +14,7 @@ const Login = () => {
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
@@ -48,6 +50,18 @@ const Login = () => {
         console.log("error", error.message);
       });
   };
+
+  const handleFacebookSignIn = () => {
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+      })
+      .catch((error) => {
+        console.log("error", error.message);
+      });
+  };
   return (
     <div>
       {/* user ? logout : sign in */}
@@ -59,6 +73,7 @@ const Login = () => {
         <div>
           <button onClick={handleGithubSignIn}>Github Loging</button>
           <button onClick={handleGoogleSignIn}>Google Login</button>
+          <button onClick={handleFacebookSignIn}>Facebook Login</button>
         </div>
       )}
 
