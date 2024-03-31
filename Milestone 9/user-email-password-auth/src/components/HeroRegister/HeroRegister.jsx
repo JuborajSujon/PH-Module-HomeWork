@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase config/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const HeroRegister = () => {
   const [heroRegisterError, setHeroRegisterError] = useState("");
@@ -103,18 +104,30 @@ const HeroRegister = () => {
                 id="terms"
               />
               <label htmlFor="terms " className="label">
-                <a href="#">Accept terms and conditions</a>
+                <a className="text-blue-600" href="#">
+                  Accept terms and conditions
+                </a>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
             </div>
-            {heroRegisterError && (
-              <p className="text-red-600">{heroRegisterError}</p>
-            )}
-            {heroRegisterSuccess && (
-              <p className="text-green-600">{heroRegisterSuccess}</p>
-            )}
+            <div>
+              {heroRegisterError && (
+                <p className="text-red-600">{heroRegisterError}</p>
+              )}
+              {heroRegisterSuccess && (
+                <p className="text-green-600">{heroRegisterSuccess}</p>
+              )}
+            </div>
+            <div>
+              <p>
+                You have an account? please{" "}
+                <Link className="text-blue-600" to="/login">
+                  Login
+                </Link>
+              </p>
+            </div>
           </form>
         </div>
       </div>
