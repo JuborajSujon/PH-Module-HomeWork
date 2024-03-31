@@ -11,6 +11,7 @@ const HeroRegister = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const acceptedTerms = e.target.terms.checked;
 
     if (password.length < 6) {
       setHeroRegisterError("Password must be at least 6 characters long");
@@ -19,6 +20,9 @@ const HeroRegister = () => {
       setHeroRegisterError(
         "Password must contain at least one uppercase letter"
       );
+      return;
+    } else if (!acceptedTerms) {
+      setHeroRegisterError("Please accept terms and conditions");
       return;
     }
 
@@ -89,6 +93,17 @@ const HeroRegister = () => {
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
                 </a>
+              </label>
+            </div>
+            <div className="form-control flex flex-row items-center gap-2">
+              <input
+                className="checkbox"
+                type="checkbox"
+                name="terms"
+                id="terms"
+              />
+              <label htmlFor="terms " className="label">
+                <a href="#">Accept terms and conditions</a>
               </label>
             </div>
             <div className="form-control mt-6">
