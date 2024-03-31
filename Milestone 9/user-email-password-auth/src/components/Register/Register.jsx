@@ -1,9 +1,15 @@
 const Register = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+  };
   return (
     <div className="flex flex-col items-center">
       <div className="w-1/2 mx-auto border-2 border-blue-500 p-5">
         <h2 className="text-2xl">Please Register</h2>
-        <form className="mt-4 space-y-4">
+        <form onSubmit={handleRegister} className="mt-4 space-y-4">
           <input
             className="w-full input"
             type="email"
