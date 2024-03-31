@@ -1,20 +1,35 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase config/firebase.config";
+import { useState } from "react";
 
 const HeroRegister = () => {
+  const [heroRegisterError, setHeroRegisterError] = useState("");
+  const [heroRegisterSuccess, setHeroRegisterSuccess] = useState("");
   const handleRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+
+    if (password.length < 6) {
+      setHeroRegisterError("Password must be at least 6 characters long");
+      return;
+    }
+
+    // reset error
+    setHeroRegisterError("");
+
+    // reset success
+    setHeroRegisterSuccess("");
 
     // create user
     createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
+        setHeroRegisterSuccess("User created successfully");
       })
-      .catch((err) => console.log("Error", err.message));
+      .catch((err) => {
+        setHeroRegisterError(err.message);
+        console.log("Error", err.message);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -61,6 +76,12 @@ const HeroRegister = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
+            {heroRegisterError && (
+              <p className="text-red-600">{heroRegisterError}</p>
+            )}
+            {heroRegisterSuccess && (
+              <p className="text-green-600">{heroRegisterSuccess}</p>
+            )}
           </form>
         </div>
       </div>
