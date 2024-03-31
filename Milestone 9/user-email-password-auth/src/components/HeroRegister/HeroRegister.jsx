@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase config/firebase.config";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const HeroRegister = () => {
   const [heroRegisterError, setHeroRegisterError] = useState("");
   const [heroRegisterSuccess, setHeroRegisterSuccess] = useState("");
+  const [showPassowrd, setPassowrd] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -12,6 +14,11 @@ const HeroRegister = () => {
 
     if (password.length < 6) {
       setHeroRegisterError("Password must be at least 6 characters long");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setHeroRegisterError(
+        "Password must contain at least one uppercase letter"
+      );
       return;
     }
 
@@ -60,13 +67,24 @@ const HeroRegister = () => {
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                className="input input-bordered"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassowrd ? "text" : "password"}
+                  placeholder="password"
+                  name="password"
+                  className="input input-bordered w-full"
+                  required
+                />
+                <span
+                  onClick={() => setPassowrd(!showPassowrd)}
+                  className="label-text absolute top-1/2 right-3 -translate-y-1/2">
+                  {showPassowrd ? (
+                    <FaEyeSlash size={20} />
+                  ) : (
+                    <FaEye size={20} />
+                  )}
+                </span>
+              </div>
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
