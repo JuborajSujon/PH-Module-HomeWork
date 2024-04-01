@@ -1,4 +1,8 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
 import auth from "../../firebase config/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -10,6 +14,7 @@ const HeroRegister = () => {
   const [showPassowrd, setPassowrd] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const acceptedTerms = e.target.terms.checked;
@@ -37,6 +42,22 @@ const HeroRegister = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         setHeroRegisterSuccess("User created successfully");
+
+        // update profile
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            console.log("User name updated successfully");
+          })
+          .catch((err) => {
+            console.log("Error", err.message);
+          });
+
+        // send verification email
+        sendEmailVerification(auth.currentUser).then(() => {
+          console.log("Email verification sent");
+        });
       })
       .catch((err) => {
         setHeroRegisterError(err.message);
@@ -56,6 +77,18 @@ const HeroRegister = () => {
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="name"
+                name="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
