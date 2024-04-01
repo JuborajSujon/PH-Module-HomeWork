@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Root from "./components/Root/Root";
+import Home from "./components/Home/Home";
+import Login from "./../../simple-firebase/src/components/Login/Login";
+import Register from "./components/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
