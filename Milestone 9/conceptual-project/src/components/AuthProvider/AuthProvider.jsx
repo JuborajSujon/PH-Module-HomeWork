@@ -9,7 +9,7 @@ import auth from "../../firebase/firebase.config";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ email: "default" });
+  const [user, setUser] = useState(null);
 
   const createNewUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ createNewUser, signInUser, user }}>
+    <AuthContext.Provider value={{ createNewUser, signInUser, user, setUser }}>
       {children}
     </AuthContext.Provider>
   );

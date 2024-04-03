@@ -1,8 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
   const { createNewUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -11,16 +13,41 @@ const Register = () => {
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
 
-    if (password === confirmPassword) {
-      createNewUser(email, password)
-        .then((res) => {
-          // console.log(res.user);
-        })
-        .catch((err) => {
-          console.log("Error", err.message);
-        });
+    if (!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email)) {
+      setEmailError("Invalid email address");
+      return;
     }
-    e.target.reset();
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Password did not match");
+      return;
+    }
+
+    if (!/\d{2,}/.test(password)) {
+      setError("Password must contain at least 2 numbers");
+      return;
+    }
+    if (!/[@#%^&*]/.test(password)) {
+      setError("Password must contain at least 1 special character [@#%^&*]");
+      return;
+    }
+
+    setError("");
+    setEmailError("");
+
+    createNewUser(email, password)
+      .then((res) => {
+        // console.log(res.user);
+        e.target.reset();
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   return (
     <div className="mt-5 flex flex-col justify-center items-center">
@@ -28,6 +55,7 @@ const Register = () => {
         onSubmit={handleRegister}
         className="space-y-4 w-2/5 border-2 border-slate-300 p-5 rounded-lg">
         <h2 className="text-2xl text-center">Register Now!</h2>
+        {error && <p className="text-red-500">{error}</p>}
         <div className="space-y-2">
           <p className="text-lg font-semibold">Full Name</p>
           <input

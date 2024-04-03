@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, setUser } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -10,13 +11,12 @@ const Login = () => {
 
     signInUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        setUser(res.user);
+        e.target.reset();
       })
       .catch((err) => {
         console.log("Error", err.message);
       });
-
-    e.target.reset();
   };
   return (
     <div className="mt-5 flex flex-col justify-center items-center">
