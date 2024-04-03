@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { signInUser, setUser } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, setUser } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -13,6 +13,16 @@ const Login = () => {
       .then((res) => {
         setUser(res.user);
         e.target.reset();
+      })
+      .catch((err) => {
+        console.log("Error", err.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        setUser(res.user);
       })
       .catch((err) => {
         console.log("Error", err.message);
@@ -48,6 +58,12 @@ const Login = () => {
           </button>
         </div>
       </form>
+      <div className="divider">OR</div>
+      <div>
+        <button onClick={handleGoogleLogin} className="btn btn-primary w-full">
+          Login With Google
+        </button>
+      </div>
     </div>
   );
 };
