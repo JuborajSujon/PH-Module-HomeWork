@@ -62,7 +62,7 @@ const Navbar = () => {
             </a>
           </>
         ) : (
-          <Link to="/login" className="btn btn-outline btn-primary">
+          <Link to="/login" className="btn btn-ghost">
             Login
           </Link>
         )}
