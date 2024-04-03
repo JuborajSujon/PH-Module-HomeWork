@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle, signInWithFacebook, setUser } =
+  const { signInUser, signInWithGoogle, signInWithFacebook, setUser, user } =
     useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -39,6 +43,12 @@ const Login = () => {
         console.log("Error", err.message);
       });
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate(location.state);
+    }
+  }, [user, navigate, location.state]);
   return (
     <div className="mt-5 flex flex-col justify-center items-center">
       <form
