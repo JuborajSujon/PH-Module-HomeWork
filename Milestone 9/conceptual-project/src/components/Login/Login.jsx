@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle, setUser } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, signInWithFacebook, setUser } =
+    useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -11,7 +12,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((res) => {
-        setUser(res.user);
+        // setUser(res.user);
         e.target.reset();
       })
       .catch((err) => {
@@ -22,7 +23,17 @@ const Login = () => {
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((res) => {
-        setUser(res.user);
+        // setUser(res.user);
+      })
+      .catch((err) => {
+        console.log("Error", err.message);
+      });
+  };
+
+  const handleFacebookLogin = () => {
+    signInWithFacebook()
+      .then((res) => {
+        // setUser(res.user);
       })
       .catch((err) => {
         console.log("Error", err.message);
@@ -59,9 +70,14 @@ const Login = () => {
         </div>
       </form>
       <div className="divider">OR</div>
-      <div>
+      <div className="flex flex-col gap-2">
         <button onClick={handleGoogleLogin} className="btn btn-primary w-full">
           Login With Google
+        </button>
+        <button
+          onClick={handleFacebookLogin}
+          className="btn btn-primary w-full">
+          Login With Facebook
         </button>
       </div>
     </div>

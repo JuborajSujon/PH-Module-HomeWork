@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const links = (
     <>
       <li>
@@ -47,8 +47,18 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
       </div>
       <div className="navbar-end">
-        <p>{user?.email}</p>
-        <a className="btn">Button</a>
+        {user ? (
+          <>
+            <p className="mr-2">{user?.email}</p>
+            <a onClick={logOut} className="btn">
+              Logout
+            </a>
+          </>
+        ) : (
+          <Link to="/login" className="btn btn-outline btn-primary">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
