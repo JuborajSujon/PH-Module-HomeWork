@@ -1,12 +1,19 @@
-import React from "react";
+import PropTypes from "prop-types";
+import { createContext, useState } from "react";
+
+export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  console.log(children);
+  const [user, setUser] = useState({ email: "default" });
   return (
-    <div>
-      <h2 className="text-3xl font-bold text-center">This is AuthProvider</h2>
-    </div>
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
   );
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default AuthProvider;

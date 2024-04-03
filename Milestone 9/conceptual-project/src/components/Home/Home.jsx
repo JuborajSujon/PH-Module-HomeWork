@@ -1,8 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export const HomeContext = createContext(null);
 const Home = ({ children }) => {
   const [counter, setCounter] = useState(0);
+  const { user } = useContext(AuthContext);
   const handleCounter = () => {
     setCounter(counter + 1);
   };
@@ -18,6 +20,7 @@ const Home = ({ children }) => {
         }}>
         {children}
       </HomeContext.Provider>
+      <div>{user?.email}</div>
     </div>
   );
 };
